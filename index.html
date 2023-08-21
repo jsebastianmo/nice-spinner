@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Spinner</title>
+</head>
+<body>
+    <section class="layout">
+        <div class="spinner">
+            <h1> <span data-target="90" class="counter"> 90 </span> <sup>%</sup> </h1>
+            <div class="block"></div>
+        </div>
+    </section>
+
+    <script>
+        const spinner = document.getElementsByClassName("spinner")[0];
+        const block = document.getElementsByClassName("block");
+
+        for (let i = 0; i < 100; i++) {
+            spinner.innerHTML += "<div class='block'></div>";
+            block[i].style.transform = "rotate(" + i*3.6 + "deg)";
+            block[i].style.animationDelay = `${i/40}s`;
+        }
+
+        const counter = document.getElementsByClassName("counter")[0];
+        const number = counter.getAttribute("data-target");
+        counter.innerText = number;
+
+    </script>
+</body>
+</html>
